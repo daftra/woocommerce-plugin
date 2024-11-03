@@ -54,7 +54,7 @@ function createTax($taxData)
         'Tax' => [
             'name' => $taxData->label,
             'value' => $taxData->rate_percent,
-            'description' => json_encode(['woocommerce_id' => $taxData->id]),
+            'description' => wp_json_encode(['woocommerce_id' => $taxData->id]),
             'site_id' => $siteData['data']['Site']['id'],
             'branch_id' => 1
         ]
@@ -65,7 +65,7 @@ function createTax($taxData)
             'APIKEY' => get_option('woocommerce_order_sync_api_key'),
             'content-type' => 'application/json'
         ],
-        'body' => json_encode($taxBody)
+        'body' => wp_json_encode($taxBody)
     ]);
 
     $body = wp_remote_retrieve_body($response);

@@ -71,6 +71,6 @@ function create_woocommerce_product($productData, $orders_ids) {
         return true;
 //        echo 'Product created successfully.';
     } catch (Exception $e) {
-        echo 'Error: ' . $e->getMessage();
+        echo 'Error: ' . esc_html($e->getMessage());
     }
 }

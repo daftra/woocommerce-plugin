@@ -92,7 +92,7 @@ function create_client_to_daftra($data)
             'content-type' => 'application/json',
             'accept' => 'application/json'
         ],
-        'body' => json_encode($client_data)
+        'body' => wp_json_encode($client_data)
     ]);
 
     $body = wp_remote_retrieve_body($response);

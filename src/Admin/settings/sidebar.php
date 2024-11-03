@@ -3,15 +3,15 @@ add_action('admin_menu', 'woocommerce_order_sync_settings_page');
 
 function woocommerce_order_sync_settings_page() {
     add_options_page(
-        'Daftra WooCommerce Sync',
-        'Daftra WooCommerce Sync',
+        'Daftra Commerce',
+        'Daftra Commerce',
         'manage_options',
-        'woocommerce-order-sync',
+        'Daftra Commerce',
         'woocommerce_order_sync_settings_page_html'
     );
     add_menu_page(
-        'Daftra WooCommerce Sync',     // Page title
-        'Daftra WooCommerce Sync',     // Menu title
+        'Daftra Commerce',     // Page title
+        'Daftra Commerce',     // Menu title
         'manage_options',       // Capability
         'woocommerce-orders-sync',     // Menu slug
         'sync_orders_plugin_page',// Callback function
@@ -37,7 +37,7 @@ function woocommerce_order_sync_settings_page_html() {
 
 // Add settings link on plugin page
 function woocommerce_order_sync_settings_link($links) {
-    $settings_link = '<a href="options-general.php?page=woocommerce-order-sync">Settings</a>';
+    $settings_link = '<a href="options-general.php?page=Daftra Commerce">Settings</a>';
     array_unshift($links, $settings_link);
     return $links;
 }

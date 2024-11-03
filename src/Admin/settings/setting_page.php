@@ -9,14 +9,14 @@ function woocommerce_order_sync_settings_init() {
 
     add_settings_section(
         'woocommerce_order_sync_settings_section',
-        __('Daftra WooCommerce Order Settings', 'woocommerce-order-sync'),
+        __('Daftra WooCommerce Order Settings', 'woocommerce-plugin-sync'),
         'woocommerce_order_sync_settings_section_callback',
         'woocommerce_order_sync'
     );
 
     add_settings_field(
         'woocommerce_order_sync_base_url',
-        __('Base URL', 'woocommerce-order-sync'),
+        __('Base URL', 'woocommerce-plugin-sync'),
         'woocommerce_order_sync_base_url_render',
         'woocommerce_order_sync',
         'woocommerce_order_sync_settings_section'
@@ -24,7 +24,7 @@ function woocommerce_order_sync_settings_init() {
 
     add_settings_field(
         'woocommerce_order_sync_api_key',
-        __('API KEY', 'woocommerce-order-sync'),
+        __('API KEY', 'woocommerce-plugin-sync'),
         'woocommerce_order_sync_api_key_render',
         'woocommerce_order_sync',
         'woocommerce_order_sync_settings_section'
@@ -44,7 +44,7 @@ function my_custom_settings_section_callback() {
 }
 
 function woocommerce_order_sync_settings_section_callback() {
-    echo __('Enter the base URL for the external system.', 'woocommerce-order-sync');
+    echo esc_html(__('Enter the base URL for the external system.', 'woocommerce-plugin-sync'));
 }
 function woocommerce_order_sync_base_url_render() {
     $base_url = get_option('woocommerce_order_sync_base_url', '');

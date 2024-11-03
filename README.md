@@ -1,14 +1,20 @@
+Daftra Commerce
+
+Stable tag: 1.0
+
+Tested up to: 6.6
+
 License: GPLv2 or later
 
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 
-<h1>Daftra Woocommerce Sync Plugin</h1>
+<h1>Daftra Commerce Plugin</h1>
 
 ---
 
 <h2>Description:</h2>
-this plugin is created to make <a href="www.daftra.com?agency_id=991">Daftra</a> users able to interact with their systems as it enables users to bring products from and to woocommerce also it make users able to transfer orders to their daftra system to be able to manage it.
+this plugin is created to make <a href="www.daftra.com?agency_id=991">Daftra</a> users able to interact with their systems as it enables users to bring products, orders from and to woocommerce.
 
 <h2>Authors:</h2>
 

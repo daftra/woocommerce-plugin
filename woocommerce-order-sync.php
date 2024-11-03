@@ -1,7 +1,7 @@
 <?php
 
 /*
-Plugin Name: Daftra Sync
+Plugin Name: Daftra Commerce
 Description: Sync WooCommerce orders with Daftra system.
 Version: 1.0
 License: GPLv2 or later

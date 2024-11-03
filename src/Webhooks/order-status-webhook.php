@@ -26,7 +26,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
                     'Content-Type' => 'application/json',
                     'APIKEY' => get_option('woocommerce_order_sync_api_key')
                 ],
-                'body'      => json_encode($data),
+                'body'      => wp_json_encode($data),
                 'method'    => 'PUT'
             ]);
 
@@ -34,15 +34,12 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
             if (is_wp_error($response)) {
                 // Handle error
                 $error_message = $response->get_error_message();
-                error_log('Webhook failed: ' . $error_message);
             } else {
                 $body = wp_remote_retrieve_body($response);
                 $res = json_decode($body, true);
 
-                error_log(json_encode($res));
             }
         } else {
-            error_log("Order is not synced to daftra yet!");
         }
     }
 }

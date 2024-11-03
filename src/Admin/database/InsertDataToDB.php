@@ -22,7 +22,7 @@ function insertDataToDB($data)
     // Check if the insert was successful
     if ($result === false) {
         // Handle error
-        return new WP_Error('insert_error', __('Could not insert data.'));
+        return new WP_Error('insert_error', 'Could not insert data.');
     }
 
     return $result;
@@ -31,17 +31,16 @@ function insertDataToDB($data)
 function getByEntity($entity, $fields = [])
 {
     global $wpdb;
-    $fields = empty($fields) ? '*' : implode(',', $fields);
+    $fields = empty($fields) ? '*' : implode(',', array_map('sanitize_key', $fields));
 
     // Prepare the SQL query
-    $table_name = $wpdb->prefix."woocommerce_daftra_log";
-    $query = $wpdb->prepare(
-        "SELECT $fields FROM $table_name WHERE type = %s",
-        $entity
-    );
+    $table_name = esc_sql($wpdb->prefix . "woocommerce_daftra_log");
 
     // Execute the query and get results
-    $results = $wpdb->get_results($query, ARRAY_A);
+    $results = $wpdb->get_results($wpdb->prepare(
+        "SELECT %s FROM `%s` WHERE type = %s",
+        [$fields, $table_name, $entity]
+    ), ARRAY_A);
 
     // Check if results are found
     if (empty($results)) {
@@ -55,16 +54,12 @@ function filterEntityBy($entity, $value)
 {
     global $wpdb;
 
-    // Prepare the SQL query
-    $table_name = $wpdb->prefix."woocommerce_daftra_log";
-    $query = $wpdb->prepare(
-        "SELECT * FROM `$table_name` WHERE `type` = %s AND `woocoomerce_id` = %s LIMIT 1",
+    // Execute the query and get results
+    $results = $wpdb->get_results($wpdb->prepare(
+        "SELECT * FROM `".esc_sql($wpdb->prefix . "woocommerce_daftra_log")."` WHERE `type` = %s AND `woocoomerce_id` = %s LIMIT 1",
         $entity,
         $value
-    );
-
-    // Execute the query and get results
-    $results = $wpdb->get_results($query, ARRAY_A);
+    ), ARRAY_A);
 
     // Check if results are found
     if (empty($results)) {

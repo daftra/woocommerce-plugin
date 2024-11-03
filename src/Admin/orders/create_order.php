@@ -38,7 +38,7 @@ function create_daftra_order($tax, $shipping, $client, $orderData)
             'content-type' => 'application/json',
             'accept' => 'application/json'
         ],
-        'body' => json_encode($payload)
+        'body' => wp_json_encode($payload)
     ]);
 
     $body = wp_remote_retrieve_body($response);
@@ -70,11 +70,11 @@ function preparePayload($tax, $shipping, $client, $orderData)
     $invoice['currency_code'] = $orderData['currency'];
     $invoice['client_business_name'] = $client['business_name'];
     $invoice['client_country_code'] = $client['country_code'];
-    $invoice['date'] = date('Y-m-d');
+    $invoice['date'] = gmdate('Y-m-d');
     $invoice['shipping_amount'] = $shipping['fees'];
     $invoice['shipping_option_id'] = $shipping['id'];
     $invoice['shipping_tax_id'] = $tax;
-    $invoice['issue_date'] = date('Y-m-d');
+    $invoice['issue_date'] = gmdate('Y-m-d');
     $invoice['summary_subtotal'] = $orderData['total'];
     $invoice['summary_discount'] = $orderData['discount_total'];
     $invoice['summary_total'] = $orderData['total'];

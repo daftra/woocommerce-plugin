@@ -61,7 +61,7 @@ function createShippingOption($shippingOption)
             'APIKEY' => get_option('woocommerce_order_sync_api_key'),
             'content-type' => 'application/json'
         ],
-        'body' => json_encode($taxBody)
+        'body' => wp_json_encode($taxBody)
     ]);
 
     $body = wp_remote_retrieve_body($response);

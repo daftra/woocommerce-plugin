@@ -28,7 +28,7 @@ function create_woocommerce_category($categoryData) {
         insertDataToDB($data);
         return $response;
     } catch (Exception $e) {
-        echo 'Error: ' . $e->getMessage();
+        echo 'Error: ' . esc_html($e->getMessage());
     }
 }
 
@@ -59,7 +59,7 @@ function create_woocommerce_sub_category($parent_id, $child_data) {
         insertDataToDB($data);
         return $response;
     } catch (Exception $e) {
-        return $e->getMessage();
+        return esc_html($e->getMessage());
     }
 }
 

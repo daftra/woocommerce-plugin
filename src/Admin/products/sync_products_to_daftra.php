@@ -94,7 +94,7 @@ function create_daftra_product($data)
             'APIKEY' => get_option('woocommerce_order_sync_api_key'),
             'content-type' => 'application/json'
         ],
-        'body' => json_encode($product_data)
+        'body' => wp_json_encode($product_data)
     ]);
     $body = wp_remote_retrieve_body($response);
     $response_array = json_decode($body, true);
