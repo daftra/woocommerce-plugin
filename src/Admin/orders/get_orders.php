@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 use Automattic\WooCommerce\Client;
 
 require_once __DIR__ . "/../taxes/taxes_functions.php";

@@ -1,10 +1,5 @@
 <?php
-/**
- * Plugin Name: Order Status Webhook
- * Description: Triggers a function when WooCommerce order status changes to "completed".
- * Version: 1.0
- * Author: Your Name
- */
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Ensure WooCommerce is active
 if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {

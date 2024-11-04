@@ -1,4 +1,7 @@
 <?php
+
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 add_action('admin_menu', 'woocommerce_order_sync_settings_page');
 
 function woocommerce_order_sync_settings_page() {

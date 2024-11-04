@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 $system_prefix = get_option('woocommerce_order_sync_base_url') .'/api2/';
 $laravel_system_prefix = get_option('woocommerce_order_sync_base_url') . "/v2/api/";
 

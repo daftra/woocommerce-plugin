@@ -1,5 +1,7 @@
 <?php
 
+if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
+
 
 require_once __DIR__ . "/Admin/settings/sidebar.php";
 require_once __DIR__ . "/Admin/settings/setting_page.php";
